@@ -13,7 +13,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/auth', [AuthController::class, 'login']);
 
-Route::middleware([])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResource('roles', RoleController::class);
     Route::apiResource('profiles', ProfileController::class);
