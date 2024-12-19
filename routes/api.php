@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationSurveyController;
+use App\Http\Controllers\ApplySurveyController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -27,3 +28,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('schools', SchoolController::class);
     Route::apiResource('applicationSurveys', ApplicationSurveyController::class);
 });
+
+Route::get('applaySurvey/{application}', [ApplySurveyController::class, 'showQuestions']);
+Route::post('applaySurvey/{application}', [ApplySurveyController::class, 'saveSurveyApplication']);
